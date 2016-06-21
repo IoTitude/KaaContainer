@@ -1,8 +1,27 @@
 version: '2'
+
 services:
   mariadb:
+    image: iotitude/mariadb
     build:
       context: ./mariadb
     environment:
       MYSQL_ROOT_PASSWORD: 'maria'
-    #command: mysql -u root -pmaria  --execute="CREATE USER 'sqladmin'@'localhost' IDENTIFIED BY 'admin'; GRANT ALL PRIVILEGES ON *.* TO 'sqladmin'@'localhost' WITH GRANT OPTION; FLUSH PRIVILEGES; CREATE DATABASE kaa;"
+      MYSQL_DATABASE: 'kaa'
+      MYSQL_USER: 'sqladmin'
+      MYSQL_PASSWORD: 'admin'
+
+  zookeeper:
+    image: iotitude/zookeeper
+    build:
+      context: ./zookeeper
+    links:
+      - mariadb
+      - cassandra
+    stdin_open: true
+    tty: true
+
+  cassandra:
+    image: iotitude/cassandra
+    build:
+      context: ./cassandra
