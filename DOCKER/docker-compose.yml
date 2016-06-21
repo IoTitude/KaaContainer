@@ -1,5 +1,8 @@
-mariadb:
-  build: ./mariadb
-  environment:
-    MYSQL_ROOT_PASSWORD: 'maria'
-  #command: mysql -u root -pmaria  --execute="CREATE USER 'sqladmin'@'localhost' IDENTIFIED BY 'admin'; GRANT ALL PRIVILEGES ON *.* TO 'sqladmin'@'localhost' WITH GRANT OPTION; FLUSH PRIVILEGES; CREATE DATABASE kaa;"
+version: '2'
+services:
+  mariadb:
+    build:
+      context: ./mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: 'maria'
+    #command: mysql -u root -pmaria  --execute="CREATE USER 'sqladmin'@'localhost' IDENTIFIED BY 'admin'; GRANT ALL PRIVILEGES ON *.* TO 'sqladmin'@'localhost' WITH GRANT OPTION; FLUSH PRIVILEGES; CREATE DATABASE kaa;"
