@@ -1,6 +1,3 @@
-# set mariadbhost in kaa: /usr/lib/kaa-node/conf/admin*
-# set zookeeperhost in kaa: /usr/lib/kaa-node/conf/kaa-node.properties
-
 version: '2'
 
 services:
