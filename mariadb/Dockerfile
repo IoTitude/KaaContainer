@@ -1,1 +1,3 @@
 FROM mariadb:5.5
+
+EXPOSE 3306

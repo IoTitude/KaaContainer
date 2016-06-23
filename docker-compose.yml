@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+  mariadb:
+    image: iotitude/mariadb
+    build:
+      context: ./mariadb
+    environment:
+      MYSQL_ROOT_PASSWORD: 'maria'
+      MYSQL_DATABASE: 'kaa'
+      MYSQL_USER: 'sqladmin'
+      MYSQL_PASSWORD: 'admin'
+    expose:
+      - "3306"
+
+  zookeeper:
+    image: iotitude/zookeeper
+    build:
+      context: ./zookeeper
+    stdin_open: true
+    tty: true
+    ports:
+      - "2181:2181"
+
+  cassandra:
+    image: iotitude/cassandra
+    build:
+      context: ./cassandra
+    ports:
+        - "9042:9042"
+        - "9160:9160"
+    stdin_open: false
+
+  kaa:
+    image: iotitude/kaa
+    build:
+      context: ./kaa
+    command: bash -c "/usr/bin/kaa-node start && while true; do sleep 1; done"
+    ports:
+      - "9000:22"
+      - "8080:8080"
+      - "9888:9888"
+      - "9889:9889"
+      - "9997:9997"
+      - "9999:9999"
+    links:
+      - mariadb
+      - zookeeper
+      - cassandra
