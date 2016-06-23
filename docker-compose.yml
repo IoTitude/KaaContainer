@@ -1,10 +1,11 @@
+# set mariadbhost in kaa: /usr/lib/kaa-node/conf/admin*
+# set zookeeperhost in kaa: /usr/lib/kaa-node/conf/kaa-node.properties
+
 version: '2'
 
 services:
   mariadb:
-    image: iotitude/mariadb
-    build:
-      context: ./mariadb
+    image: mariadb:5.5
     environment:
       MYSQL_ROOT_PASSWORD: 'maria'
       MYSQL_DATABASE: 'kaa'
