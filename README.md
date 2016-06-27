@@ -16,5 +16,7 @@ At this early point of development you need to configure the containers after 'd
 - set mariadbhost in kaa container: /usr/lib/kaa-node/conf/admin*
 - set mariadbhost in kaa container: /usr/lib/kaa-node/conf/sql-dao.properties
 - set zookeeperhost in kaa container: /usr/lib/kaa-node/conf/kaa-node.properties
+- `service kaa-node restart`
 - run 'cqlsh -f /var/lib/cassandra/cassandra.cql' in cassandra container
-- maybe change cassandra settings in /etc/cassandra/cassandra.yaml ?
+
+Cassandra still needs to be configured correctly in order to store measuring data.
