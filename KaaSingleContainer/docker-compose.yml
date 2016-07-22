@@ -1,0 +1,9 @@
+kaa_node:
+    image: iotitude/kaa_single_container
+    ports:
+      - "22:22"
+      - "8080:8080"
+      - "9888:9888"
+      - "9889:9889"
+      - "9997:9997"
+      - "9999:9999"
