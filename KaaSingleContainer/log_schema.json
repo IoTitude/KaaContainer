@@ -1,0 +1,34 @@
+{  
+	"type":"record",
+	"name":"KaMUlog",
+	"namespace":"org.kaaproject.kaa.schema.sample.logging",
+	"fields":[  
+	  {  
+	     "name":"id",
+	     "type":{  
+		"type":"string",
+		"avro.java.string":"String"
+	     }
+	  },
+	  {  
+	     "name":"temperature",
+	     "type":"double"
+	  },
+	  {  
+	     "name":"conductivity",
+	     "type":"double"
+	  },
+	  {  
+	     "name":"pressure",
+	     "type":"double"
+	  },
+	  {  
+	     "name":"level",
+	     "type":"double"
+	  },
+	  {  
+	     "name":"flow",
+	     "type":"double"
+	  }
+	]
+}
